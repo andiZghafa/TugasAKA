@@ -7,29 +7,24 @@ def S(n):
     else:
         return S(n-1) + n * n * n
 
-# Record the start time
-start_time = time.time()
+# Lists to store input values and elapsed times for each function call
+n_values = list(range(1, 11))
+elapsed_times_S = []
 
-# Generate values for the function
-n_values = range(1, 11)
-S_values = [S(n) for n in n_values]
+# Measure elapsed time for each function call of S
+for n in n_values:
+    start_time_S = time.time()
+    S(n)
+    end_time_S = time.time()
+    elapsed_times_S.append(end_time_S - start_time_S)
 
-# Record the end time
-end_time = time.time()
-
-# Plot the function
-plt.plot(n_values, S_values)
-plt.xlabel("n")
-plt.ylabel("S(n)")
-plt.title("Sum of Cubes of First n Natural Numbers")
-
-# Annotate the plot with the Big O complexity
-plt.annotate("O(n)", xy=(10, S_values[-1]), xytext=(8, S_values[-1] + 50), arrowprops=dict(facecolor='black', shrink=0.05))
+# Create the plot
+plt.plot(n_values, elapsed_times_S, marker='o', label='S function')
+plt.xlabel('n')
+plt.ylabel('Elapsed Time (seconds)')
+plt.title('Runtime Analysis of S Function')
+plt.legend()
 
 # Show the plot
 plt.grid(True)
 plt.show()
-
-# Calculate and print the total elapsed time
-elapsed_time = end_time - start_time
-print(f"Total elapsed time: {elapsed_time:.6f} seconds")
