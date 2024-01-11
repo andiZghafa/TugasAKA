@@ -8,7 +8,7 @@ def Mystery(n):
     return S
 
 # Lists to store input values and elapsed times for each function call
-n_values = list(range(1, 11))
+n_values = list(range(1, 501))
 elapsed_times_Mystery = []
 
 # Measure elapsed time for each function call of Mystery
