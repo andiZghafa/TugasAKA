@@ -5,10 +5,10 @@ def S(n):
     if n == 1:
         return 1
     else:
-        return S(n-1) + n * n * n
+        return S(n-1) + n * n
 
 # Lists to store input values and elapsed times for each function call
-n_values = list(range(1, 11))
+n_values = list(range(1, 501))
 elapsed_times_S = []
 
 # Measure elapsed time for each function call of S
